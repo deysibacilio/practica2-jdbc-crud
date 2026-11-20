@@ -7,6 +7,7 @@ public class Libro {
     //aqui es integer por que en la base de datos integer puede ser null pero un int no
     private Integer anio;
     private boolean disponible;
+    private Integer autorId;
 
     //constructor para cuando leemos de BD
     public Libro(Integer id, String titulo, String isbn, Integer anio, boolean disponible) {
@@ -15,13 +16,25 @@ public class Libro {
         this.isbn = isbn;
         this.anio = anio;
         this.disponible = disponible;
+        this.autorId = null;
     }
 
     //Constructor para libro nuevo
-
-
     public Libro(String titulo, String isbn, Integer anio, boolean disponible) {
-        this(null, titulo, isbn, anio, disponible);
+        this(null, titulo, isbn, anio, disponible, null);
+    }
+
+    public Libro(Integer id, String titulo, String isbn, Integer anio, boolean disponible, Integer autorId) {
+        this.id = id;
+        this.titulo = titulo;
+        this.isbn = isbn;
+        this.anio = anio;
+        this.disponible = disponible;
+        this.autorId = autorId;
+    }
+
+    public Libro(String titulo, String isbn, Integer anio, boolean disponible, Integer autorId) {
+        this(null, titulo, isbn, anio, disponible, autorId);
     }
 
     public Integer getId() {
@@ -64,6 +77,14 @@ public class Libro {
         this.disponible = disponible;
     }
 
+    public Integer getAutorId() {
+        return autorId;
+    }
+
+    public void setAutorId(Integer autorId) {
+        this.autorId = autorId;
+    }
+
     @Override
     public String toString() {
         return "Libro{" +
@@ -72,6 +93,7 @@ public class Libro {
                 ", isbn='" + isbn + '\'' +
                 ", anio=" + anio +
                 ", disponible=" + disponible +
+                ", autorId=" + autorId +
                 '}';
     }
 }
